@@ -3,7 +3,7 @@ import { createTask, deleteTask, findTasksByUser, updateTask } from "../services
 
 const tasksRouter = Router();
 
-tasksRouter.post("", createTask);
+tasksRouter.post("/:idUser", createTask);
 tasksRouter.get("/:idUser", findTasksByUser);
 tasksRouter.patch("/:idTask", updateTask);
 tasksRouter.delete("/:idTask", deleteTask);

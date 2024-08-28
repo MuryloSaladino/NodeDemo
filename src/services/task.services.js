@@ -1,13 +1,17 @@
 import Task from "../models/Task.model"
+import User from "../models/User.model";
 
 // serviços que gerenciam as tarefas da aplicação
 
 export const createTask = async (request, response) => {
 
-    // criando e salvando o novo tarefa
-    const task = await Task.create(request.body);
+    // encontrando o usuário que fez o pedido
+    const user = await User.findByPk(request.params.idUser)
 
-    // devolvendo o tarefa criado para o frontend com o status code mais adequado
+    // criando e salvando a novo tarefa
+    const task = await Task.create({ ...request.body, idUser: user.id });
+
+    // devolvendo a tarefa criada para o frontend com o status code mais adequado
     // 201 CREATED
     response.status(201).json(task);
 }
