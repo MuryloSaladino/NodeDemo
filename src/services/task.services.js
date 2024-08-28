@@ -15,7 +15,7 @@ export const createTask = async (request, response) => {
 export const findTasksByUser = async (request, response) => {
 
     // encontrando todos os tasks
-    const tasks = await Task.findAll({ where: { idUser: request.params.id } });
+    const tasks = await Task.findAll({ where: { idUser: request.params.idUser } });
 
     // devolvendo as tarefas encontrados para o frontend com o status code mais adequado
     // 200 OK
@@ -25,7 +25,7 @@ export const findTasksByUser = async (request, response) => {
 export const updateTask = async (request, response) => {
 
     // encontrando o task pelo id que deve ser passado na url
-    const task = await Task.findByPk(request.params.id);
+    const task = await Task.findByPk(request.params.idTask);
     
     // método do próprio sequelize para atualizar os campos
     task.set(request.body);
@@ -40,7 +40,7 @@ export const updateTask = async (request, response) => {
 export const deleteTask = async (request, response) => {
 
     // encontrando o task pelo id que deve ser passado na url
-    await Task.destroy({ where: { id: request.params.id } })
+    await Task.destroy({ where: { id: request.params.idTask } })
 
     // devolvendo o tarefa atualizado para o frontend com o status code mais adequado
     // 204 NO CONTENT 
