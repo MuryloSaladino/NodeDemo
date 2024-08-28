@@ -12,24 +12,14 @@ export const createTask = async (request, response) => {
     response.status(201).json(task);
 }
 
-export const findAllTasks = async (request, response) => {
+export const findTasksByUser = async (request, response) => {
 
     // encontrando todos os tasks
-    const tasks = await Task.findAll();
+    const tasks = await Task.findAll({ where: { idUser: request.params.id } });
 
     // devolvendo as tarefas encontrados para o frontend com o status code mais adequado
     // 200 OK
     response.status(200).json(tasks);
-}
-
-export const findTaskById = async (request, response) => {
-
-    // encontrando task pelo id que deve ser passado na url
-    const task = await Task.findByPk(request.params.id);
-
-    // devolvendo o tarefa encontrado para o frontend com o status code mais adequado
-    // 200 OK
-    response.status(200).json(task);
 }
 
 export const updateTask = async (request, response) => {
