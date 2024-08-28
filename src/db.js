@@ -13,7 +13,7 @@ if(!database || !username || !password || !port) throw new Error("Missing .env v
 const db = new Sequelize( database, username, password, {
     host: "localhost",
     port: Number(port),
-    dialect: "mssql" 
+    dialect: "postgres" 
 })
 
 export default db;
