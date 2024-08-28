@@ -4,6 +4,7 @@
 import express from "express";
 import userRouter from "./routes/users.routes";
 import cors from "cors"
+import tasksRouter from "./routes/tasks.routes";
 
 
 // instanciando o express:
@@ -19,6 +20,7 @@ app.use(cors())
 // configurando os routers em seus destinos desejados, ou seja, naquele 
 // endereço o router irá atuar adicionando as rotas que ele tem
 app.use("/users", userRouter)
+app.use("/tasks", tasksRouter)
 
 
 export default app;
