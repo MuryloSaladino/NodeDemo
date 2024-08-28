@@ -1,0 +1,6 @@
+# Pastas do node
+node_modules
+package_lock.json
+
+# Arquivo com váriaveis do ambiente que está sendo usado o projeto, pode conter senhas
+.env
