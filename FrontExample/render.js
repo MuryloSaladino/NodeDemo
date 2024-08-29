@@ -39,6 +39,7 @@ export async function renderTasks() {
             <tr>
                 <td>${task.id}</td>
                 <td>${task.description}</td>
+                <td>${task.done ? "Completa" : "Incompleta"}</td>
                 <td> 
                     <span class="material-symbols-outlined delete-task" data-id="${task.id}">delete</span>
                 </td>
