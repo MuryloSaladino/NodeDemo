@@ -1,4 +1,4 @@
-import { hashSync } from "bcryptjs";
+import crypt from "bcryptjs";
 import User from "../models/User.model.js"
 
 // serviços que gerenciam os usuários da aplicação
@@ -9,7 +9,7 @@ export const createUser = async (request, response) => {
     const payload = request.body;
 
     // cryptografando a senha
-    payload.password = hashSync(payload.password);
+    payload.password = crypt.hashSync(payload.password);
 
     // criando e salvando o novo usuário
     const user = await User.create(request.body);
