@@ -47,9 +47,7 @@ export const updateUser = async (request, response) => {
     const user = await User.findByPk(request.params.id);
     
     // método do próprio sequelize para atualizar os campos
-    user.set(request.body);
-    // salvar o objeto após as mudanças
-    await user.save();
+    user.update(request.body);
 
     // devolvendo o usuário atualizado para o frontend com o status code mais adequado
     // 200 OK 
