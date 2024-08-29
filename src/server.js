@@ -8,7 +8,7 @@ import db from "./db.js";
 async function startApplication() {
 
     // iniciando a conexão com o banco
-    await db.authenticate();
+    await db.sync();
     
 
     // Encontrando a porta para rodar o servidor.
