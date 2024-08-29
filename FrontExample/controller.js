@@ -1,6 +1,8 @@
 import { renderTasks, renderUsers } from "./render.js"
 import { postTask } from "./requests.js"
 
+// controller é o arquivo configura os eventos da página e chama as funções
+// basicamente, ele que dita o fluxo da página, diz o que vai acontecer e quando
 
 
 // selecionando o select de usuário que está na table

@@ -52,3 +52,16 @@ export async function postTask(userId, description) {
     )    
     return await response.json()
 }
+
+
+export async function deleteTask(idTask) {
+    await fetch(
+        `${baseurl}/tasks/${idTask}`,
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    )
+}

@@ -1,4 +1,4 @@
-import { getTasksByUser, getUsers } from "./requests.js"
+import { deleteTask, getTasksByUser, getUsers } from "./requests.js"
 
 // função que irá renderizar as options de usuário nos selects
 export async function renderUsers() {
@@ -33,12 +33,25 @@ export async function renderTasks() {
     table.innerHTML = ""
 
     // inserindo os dados no elemento
+    // no ícone de delete, estamos entregando uma classe para ser mais fácil de selecionar todos depois, e armazenando um id no elemento
     tasks.forEach(task => {
         table.insertAdjacentHTML("beforeend", `
             <tr>
                 <td>${task.id}</td>
                 <td>${task.description}</td>
+                <td> 
+                    <span class="material-symbols-outlined delete-task" data-id="${task.id}">delete</span>
+                </td>
             </tr>
         `)
     })
+
+    // agora sim adicionamos o evento de delete
+    const deleteButtons = document.querySelectorAll(".delete-task")
+
+    // para cada elemento, adicionamos o evento que chama a função de deletar passando o "data-id" que colocamos anteriormente
+    deleteButtons.forEach(button => button.addEventListener("click", async (e) => {
+        await deleteTask(e.target.getAttribute("data-id"))
+        renderTasks()
+    }))
 }
