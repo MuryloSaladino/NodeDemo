@@ -17,13 +17,14 @@ export const createUser = async (request, response) => {
     // devolvendo o usuário criado para o frontend com o status code mais adequado
     // 201 CREATED
     // importante: sempre que retornar um user, precisa esconder a senha na resposta
-    response.status(201).json({ ...user, password: undefined });
+    user.password = undefined;
+    response.status(201).json(user);
 }
 
 export const findAllUsers = async (request, response) => {
 
     // encontrando todos os users
-    const users = await User.findAll({ attributes: { exclude: ["passoword"] } });
+    const users = await User.findAll({ attributes: { exclude: ["password"] } });
 
     // devolvendo os usuários encontrados para o frontend com o status code mais adequado
     // 200 OK
@@ -33,7 +34,7 @@ export const findAllUsers = async (request, response) => {
 export const findUserById = async (request, response) => {
 
     // encontrando user pelo id que deve ser passado na url
-    const user = await User.findByPk(request.params.id, { attributes: { exclude: ["passoword"] } });
+    const user = await User.findByPk(request.params.id, { attributes: { exclude: ["password"] } });
 
     // devolvendo o usuário encontrado para o frontend com o status code mais adequado
     // 200 OK
@@ -52,7 +53,8 @@ export const updateUser = async (request, response) => {
 
     // devolvendo o usuário atualizado para o frontend com o status code mais adequado
     // 200 OK 
-    response.status(200).json({ ...user, password: undefined });
+    user.password = undefined;
+    response.status(200).json(user);
 }
 
 export const deleteUser = async (request, response) => {
