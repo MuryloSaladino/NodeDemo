@@ -1,5 +1,5 @@
-import Task from "../models/Task.model"
-import User from "../models/User.model";
+import Task from "../models/Task.model.js"
+import User from "../models/User.model.js";
 
 // serviços que gerenciam as tarefas da aplicação
 

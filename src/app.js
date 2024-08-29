@@ -1,10 +1,10 @@
 // Arquivo específico para instancializar e configurar o express, o coração da API.
 // nada deve ser alterado ou configurado no app fora desse arquivo.
 
-import express from "express";
-import userRouter from "./routes/users.routes";
 import cors from "cors"
-import tasksRouter from "./routes/tasks.routes";
+import express from "express";
+import userRouter from "./routes/users.routes.js";
+import tasksRouter from "./routes/tasks.routes.js";
 
 
 // instanciando o express:

@@ -1,4 +1,4 @@
-import { createUser, deleteUser, findAllUsers, findUserById, updateUser } from "../services/user.services";
+import { createUser, deleteUser, findAllUsers, findUserById, updateUser } from "../services/user.services.js";
 import { Router } from "express";
 
 // instancializando um novo router, um objeto do express que ajuda a separar e configurar as rotas de forma mais flexível

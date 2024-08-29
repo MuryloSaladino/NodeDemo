@@ -1,5 +1,5 @@
+import { createTask, deleteTask, findTasksByUser, updateTask } from "../services/task.services.js";
 import { Router } from "express";
-import { createTask, deleteTask, findTasksByUser, updateTask } from "../services/task.services";
 
 const tasksRouter = Router();
 

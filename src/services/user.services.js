@@ -1,5 +1,5 @@
 import { hashSync } from "bcryptjs";
-import User from "../models/User.model"
+import User from "../models/User.model.js"
 
 // serviços que gerenciam os usuários da aplicação
 
