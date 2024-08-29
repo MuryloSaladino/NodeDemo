@@ -13,8 +13,8 @@ const app = express();
 // confuso agora, mas pensa que ele faz um passo a passo em cada rota, e você que diz quais passos ele irá "usar" .
 
 // aqui estamos configurando o app para ao receber uma requisição, transformar o corpo dele em um json.
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 
 
 // configurando os routers em seus destinos desejados, ou seja, naquele 
